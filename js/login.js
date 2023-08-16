@@ -10,7 +10,7 @@ document.getElementById('submit_btn').addEventListener('click', function () {
     // DANGER: DO NOT VERIFY email password on the client side
     // I am doing this now just to learn
     if (email === 'sarkarniloy102@gmail.com' && password === 'Niloy102')
-        console.log('valid');
+        window.location.href = 'bank.html';
     else
-        console.log('invalid');
+        alert("Didn't match username & password.Try again");
 })
