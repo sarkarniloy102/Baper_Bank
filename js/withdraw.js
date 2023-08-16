@@ -4,7 +4,11 @@ document.getElementById('withdraw_btn').addEventListener('click', function () {
     // get withdraw amount from input withdraw field
     const WithdrawField = document.getElementById('input_withdraw');
     const WithdrawAmount = parseFloat(WithdrawField.value);
-
+    WithdrawField.value = '';
+    if (isNaN(WithdrawAmount)) {
+        alert('Invalid Amount!!Please enter a Number');
+        return
+    }
     // get total withdraw balance from total balance field
     const TotalWithdrawField = document.getElementById('total_withdraw');
     const TotalWithdrawAmount = parseFloat(TotalWithdrawField.innerText);
@@ -25,5 +29,5 @@ document.getElementById('withdraw_btn').addEventListener('click', function () {
         const NewTotalAmount = TotalAmount - WithdrawAmount;
         TotalBalanceField.innerText = NewTotalAmount;
     }
-    WithdrawField.value = '';
+
 });

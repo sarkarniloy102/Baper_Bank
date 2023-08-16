@@ -4,7 +4,11 @@ document.getElementById('deposit_btn').addEventListener('click', function () {
     // get value of deposit amount from input_deposit field
     const i_deposit = document.getElementById('input_deposit');
     const deposit_amount = parseFloat(i_deposit.value);
-
+    i_deposit.value = '';
+    if (isNaN(deposit_amount)) {
+        alert('Invalid Amount!!Please enter a Number');
+        return
+    }
     // get innertext of total_deposit balance
     const T_deposit = document.getElementById('total_deposit');
     const currentDepositAmount = parseFloat(T_deposit.innerText);
@@ -22,5 +26,5 @@ document.getElementById('deposit_btn').addEventListener('click', function () {
     T_balance.innerText = NewTotalAmount;
 
 
-    i_deposit.value = '';
+
 });
