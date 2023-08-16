@@ -1,10 +1,26 @@
 // add event handlers on deposite button
 document.getElementById('deposit_btn').addEventListener('click', function () {
-    // get value of input_deposit field
-    const i_deposit = document.getElementById('input_deposit');
-    const deposit_value = i_deposit.value;
 
-    // get innertext of total_deposit
+    // get value of deposit amount from input_deposit field
+    const i_deposit = document.getElementById('input_deposit');
+    const deposit_amount = parseFloat(i_deposit.value);
+
+    // get innertext of total_deposit balance
     const T_deposit = document.getElementById('total_deposit');
-    const TD_value = T_deposit.innerText;
+    const currentDepositAmount = parseFloat(T_deposit.innerText);
+
+    // The New deposit balance is 
+    const NewDepositAmount = currentDepositAmount + deposit_amount
+    T_deposit.innerText = NewDepositAmount;
+
+    // get the value of total balance from total_balance field
+    const T_balance = document.getElementById('total_balance');
+    const TotalAmount = parseFloat(T_balance.innerText);
+
+    // The Total balance is 
+    const NewTotalAmount = TotalAmount + NewDepositAmount;
+    T_balance.innerText = NewTotalAmount;
+
+
+    i_deposit.value = '';
 });
